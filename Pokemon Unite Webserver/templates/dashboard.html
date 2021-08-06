@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <title>Pokémon Unite UK</title>
+  <head>
+      <link rel="stylesheet" href="../static/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  </head>
+<body>
+    <form action="/submit">
+        <div class="icon">
+            <img id = "title" src="../static/pu.png">
+        </div>
+        <div class="icon">
+
+        <img id = "profilepicture" src="{{ profilepicture }}" width = 200 height = 200>
+        </div>
+        <div class="container">
+            <label for="trainerid"><strong>Trainer ID</strong></label>
+            <input type="text" placeholder="Enter Trainer ID" name="trainerid" maxlength = 20 value="{{ trainerid }}" required>
+            <label for="level"><strong>Level</strong></label>
+            <input type="number" placeholder="Enter Level" name="level" max = 999 min = 1 value="{{ level }}" required>
+            <br>
+            <label for="pokemon"><strong>Favourite Pokemon</strong></label>
+            <br>
+            <select id="favouritepokemon" name="favouritepokemon">
+                <option value='Gardevoir'{% if favouritepokemon == 'Gardevoir' %} selected="selected"{% endif %}>Gardevoir</option>
+                <option value='Zeraora'{% if favouritepokemon == 'Zeraora' %} selected="selected"{% endif %}>Zeraora</option>
+                <option value='Pikachu'{% if favouritepokemon == 'Pikachu' %} selected="selected"{% endif %}>Pikachu</option>
+                <option value='Charizard'{% if favouritepokemon == 'Charizard' %} selected="selected"{% endif %}>Charizard</option>
+                <option value='Snorlax'{% if favouritepokemon == 'Snorlax' %} selected="selected"{% endif %}>Snorlax</option>
+                <option value='Crustle'{% if favouritepokemon == 'Crustle' %} selected="selected"{% endif %}>Crustle</option>
+                <option value='Greninja'{% if favouritepokemon == 'Greninja' %} selected="selected"{% endif %}>Greninja</option>
+                <option value='Eldegoss'{% if favouritepokemon == 'Eldegoss' %} selected="selected"{% endif %}>Eldegoss</option>
+                <option value='Talonflame'{% if favouritepokemon == 'Talonflame' %} selected="selected"{% endif %}>Talonflame</option>
+                <option value='Lucario'{% if favouritepokemon == 'Lucario' %} selected="selected"{% endif %}>Lucario</option>
+                <option value='Venusaur'{% if favouritepokemon == 'Venusaur' %} selected="selected"{% endif %}>Venusaur</option>
+                <option value='Mr. Mime'{% if favouritepokemon == 'Mr. Mime' %} selected="selected"{% endif %}>Mr. Mime</option>
+                <option value='Slowbro'{% if favouritepokemon == 'Slowbro' %} selected="selected"{% endif %}>Slowbro</option>
+                <option value='Absol'{% if favouritepokemon == 'Absol' %} selected="selected"{% endif %}>Absol</option>
+                <option value='Machamp'{% if favouritepokemon == 'Machamp' %} selected="selected"{% endif %}>Machamp</option>
+                <option value='Wigglytuff'{% if favouritepokemon == 'Wigglytuff' %} selected="selected"{% endif %}>Wigglytuff</option>
+                <option value='Alolan Ninetales'{% if favouritepokemon == 'Alolan Ninetales' %} selected="selected"{% endif %}>Alolan Ninetales</option>
+                <option value='Cramorant'{% if favouritepokemon == 'Cramorant' %} selected="selected"{% endif %}>Cramorant</option>
+                <option value='Gengar'{% if favouritepokemon == 'Gengar' %} selected="selected"{% endif %}>Gengar</option>
+                <option value='Garchomp'{% if favouritepokemon == 'Garchomp' %} selected="selected"{% endif %}>Garchomp</option>
+                <option value='Cinderace'{% if favouritepokemon == 'Cinderace' %} selected="selected"{% endif %}>Cinderace</option>
+            </select>
+            <br>
+            <label for="rank"><strong>Rank</strong></label>
+            <br>
+            <select id="rank" name="rank">
+                <option value='Beginner'{% if rank == 'Beginner' %} selected="selected"{% endif %}>Beginner</option>
+                <option value='Great'{% if rank == 'Great' %} selected="selected"{% endif %}>Great</option>
+                <option value='Expert'{% if rank == 'Expert' %} selected="selected"{% endif %}>Expert</option>
+                <option value='Veteran'{% if rank == 'Veteran' %} selected="selected"{% endif %}>Veteran</option>
+                <option value='Ultra'{% if rank == 'Ultra' %} selected="selected"{% endif %}>Ultra</option>
+                <option value='Master'{% if rank == 'Master' %} selected="selected"{% endif %}>Master</option>
+            </select>
+            <br>
+            <label for="position"><strong>Main Position</strong></label>
+            <br>
+            <br>
+            <label class="checkcontainer">Top
+            <input type="checkbox" name="playstoplane"{% if playstoplane == true %} checked{% endif %}>
+            <span class="checkmark"></span>
+            </label>
+            <label class="checkcontainer">Jungle
+            <input type="checkbox" name="playsjungle"{% if playsjungle == true %} checked{% endif %}>
+            <span class="checkmark"></span>
+            </label>
+            <label class="checkcontainer">Bot
+            <input type="checkbox" name="playsbotlane"{% if playsbotlane == true %} checked{% endif %}>
+            <span class="checkmark"></span>
+            </label>
+            <br>
+            <input id = "userid" type = hidden name="userid">
+            <input id = "token" type = hidden name="token">
+            <label for="bio"><strong>Biography</strong></label>
+            <input type="text" placeholder="Enter Bio" name="bio" maxlength = 140 value="{{ biography }}" required>
+        </div>
+        <button type="submit"><strong>SUBMIT</strong></button>
+        <script>function getParameterByName(name, url = window.location.href) {name = name.replace(/[\[\]]/g, '\\$&');var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);if (!results) return null;if (!results[2]) return '';return decodeURIComponent(results[2].replace(/\+/g, ' '));}document.getElementById("userid").value = getParameterByName("userid");document.getElementById("token").value = getParameterByName("token");</script>
+    </form>
+</body>
+</html>
