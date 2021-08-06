@@ -16,4 +16,4 @@ if __name__ == '__main__':
             print(f'Failed to load cog - {extension}.', file=sys.stderr)
             traceback.print_exc()
 
-bot.run("ODcyMzMyODI5NzAxMzI4OTY3.YQoVQQ.yr6blrcshDPG5mq4KLsrZtq8Li8")
+bot.run("")
